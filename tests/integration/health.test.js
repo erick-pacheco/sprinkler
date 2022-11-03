@@ -7,7 +7,7 @@ describe('Endpoint to check API availability', () => {
 
     methods.forEach((method) => {
         describe(`${method.toUpperCase()} ${endpoint}`, () => {
-            test('should return 200 and empty body', async () => {
+            test(`should return 200 and empty body`, async () => {
                 const res = await request(app)[method](endpoint);
 
                 expect(res.status).toBe(200);

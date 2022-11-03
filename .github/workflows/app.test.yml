@@ -6,6 +6,8 @@ name: CI and Jest
 on:
   push:
     branches: [ "master" ]
+env: 
+   MONGODB_URL: ${{secrets.MONGODB_URL}}
 
 jobs:
   build:
@@ -25,7 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      env: 
-        MONGODB_URL: ${{secrets.MONGODB_URL}}
     - run: npm run test
       
